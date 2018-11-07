@@ -1,3 +1,2 @@
-title Pharma Server
-java proj.networking.server.PharmaServer 9999
-
+start startServer.bat
+start client.bat

@@ -1,4 +1,4 @@
-package proj.networking.server;
+package proj.server;
 
 import java.io.*;
 import java.net.*;

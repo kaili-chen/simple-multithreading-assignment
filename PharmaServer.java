@@ -1,4 +1,4 @@
-package proj.networking.server;
+package proj.server;
 
 import java.io.*;
 import java.net.*;
@@ -6,8 +6,9 @@ import java.util.*;
 
 public class PharmaServer {
     private int port;
-    private Set<String> counterNames = new HashSet<>();
-    private Set<CounterThread> counterThreads = new HashSet();
+    private Set<String> counterNames = new HashSet<String>();
+    private Set<CounterThread> counterThreads = new HashSet<CounterThread>();
+    private int[] queue;
 
     public PharmaServer(int port) {
         this.port = port;
@@ -31,18 +32,6 @@ public class PharmaServer {
             System.out.println("Error in PharmaServer: " + i.getMessage());
             i.printStackTrace();
         }
-    }
-
-    public static void main(String[] args) {
-        if (args.length < 1) {
-            System.out.println("Syntax: java PharmaServer <port_nuumber>");
-            System.exit(0);
-        }
-
-        int port = Integer.parseInt(args[0]);
-
-        PharmaServer server = new PharmaServer(port);
-        server.execute();
     }
 
     public void broadcast(String msg, CounterThread excludeCounter) {
@@ -71,6 +60,22 @@ public class PharmaServer {
 
     public boolean hasActiveCounters() {
         return !this.counterNames.isEmpty();
+    }
+
+    public static void main(String[] args) {
+        if (args.length < 1) {
+            System.out.println("Syntax: java PharmaServer <port_nuumber>");
+            System.exit(0);
+        }
+
+        int port = Integer.parseInt(args[0]);
+
+        PharmaServer server = new PharmaServer(port);
+        server.execute();
+    }
+
+    public void startQueue() {
+        
     }
 
 }
