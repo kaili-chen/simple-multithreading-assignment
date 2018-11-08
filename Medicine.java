@@ -5,15 +5,17 @@ public class Medicine {
     private int medID;
     private String name;
     private int qty;
-    private String type;
-    private String manufacturer;
+    private String type;    //eg syrup, pill, injection etc.
+    private String unit;    //uom eg g, mg etc
+    private double amountPerUnit;
     
-    public Medicine(int medID, String name, int qty, String type, String manufacturer) {
+    public Medicine(int medID, String name, double amountPerUnit, String unit, int qty, String type) {
         this.medID = medID;
         this.name = name;
+        this.amountPerUnit = amountPerUnit;
         this.qty = qty;
+        this.unit = unit;
         this.type = type;
-        this.manufacturer = manufacturer;
     }
 
 //use custom exception here?
@@ -44,12 +46,16 @@ public class Medicine {
         return qty;
     }
 
-    public String getType() {
-        return type;
+    public double getAmountPerUnit() {
+        return amountPerUnit;
     }
 
-    public String getManufacturer() {
-        return manufacturer;
+    public int getUnit() {
+        return unit;
+    }
+
+    public String getType() {
+        return type;
     }
 
     //SETTERS
@@ -65,7 +71,11 @@ public class Medicine {
         qty = newQty;
     }
 
-    public void setManufacturer(String newManufacturer) {
-        manufacturer = newManufacturer;
+    public void setAmountPerUnit(double newAmount) {
+        amountPerUnit = newAmount;
+    }
+
+    public void setUnit(String newUnit) {
+        unit = newUnit;
     }
 }
