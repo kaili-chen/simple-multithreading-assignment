@@ -1,0 +1,13 @@
+To Run:
+1. run 'compile.bat'
+2. run 'run.bat': this will start the server and 2 clients in new command prompt windows
+3. run 'start_client.bat' to add more clients to the currently running server
+
+Notes:
+- the server will be started on port 9999
+- the command prompt window running the server will have a grey background for higher ease in differenciation 
+
+To run the server and clients seperately:
+1. run 'start_server.bat'
+2. in a new command prompt window, run 'start_client.bat'
+** 'start_server.bat' must be run first
